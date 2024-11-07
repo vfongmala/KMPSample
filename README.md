@@ -24,3 +24,30 @@ We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public S
 If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 
 You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+
+
+## Learning note
+#### Note #1
+##### 1.  To run server us command
+```
+./gradlew :server:run
+```
+##### 2. IDE
+Fleet IDE is slightly better integrated with KMP than Android Studio
+
+
+##### 3. Set response type to JSON
+```
+call.respondText(
+  contentType = ContentType.Application.Json,
+  text = /*Text*/
+)
+```
+
+##### 4. To connect Android emulator with localhost on machine
+```
+adb reverse tcp:<port> tcp:<port> // port is the same value as in Constants.SERVER_PORT
+```
+```
+adb reverse --reset-all // to reset tcp to default
+```

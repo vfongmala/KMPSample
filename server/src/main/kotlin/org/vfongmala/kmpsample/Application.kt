@@ -1,5 +1,6 @@
 package org.vfongmala.kmpsample
 
+import io.ktor.http.ContentType
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
@@ -14,7 +15,14 @@ fun main() {
 fun Application.module() {
     routing {
         get("/") {
-            call.respondText("Ktor: ${Greeting().greet()}")
+            call.respondText(
+                contentType = ContentType.Application.Json,
+                text = """
+                    {
+                        "message": "Hello"
+                    }
+                """.trimIndent(),
+            )
         }
     }
 }
