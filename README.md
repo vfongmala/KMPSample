@@ -51,3 +51,13 @@ adb reverse tcp:<port> tcp:<port> // port is the same value as in Constants.SERV
 ```
 adb reverse --reset-all // to reset tcp to default
 ```
+
+#### Note #2
+##### 1. IDE
+Even though Fleet IDE is better integrated but Android Studio can handle gradle sync in UI better, in case I don't want to use command line
+
+##### 2. Module dependency
+Better not to get confused on where to implement the dependency
+
+##### 3. Json Serialization
+First time using kotlin serialization instead of Gson.
