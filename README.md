@@ -63,9 +63,50 @@ Better not to get confused on where to implement the dependency
 First time using kotlin serialization instead of Gson.
 
 #### Note #3
+[Ktor fullstack docs](https://ktor.io/docs/full-stack-development-with-kotlin-multiplatform.html#add-update-functionality)
 ##### 1. DI
 Use Koin for Dependencies Injection
 
 ##### 2. Logic
 Keep logic part in `shared` module
 `composeApp` module is for app related feature
+
+##### 3. Using Ktor for multiplatform
+In `shared/build.gradle.kts` need to add client for each platform in dependencies too
+
+```
+sourceSets {
+    androidMain.dependencies {
+        implementation(libs.ktor.client.android)
+    }
+    commonMain.dependencies {
+        // put your Multiplatform dependencies here
+        implementation(libs.ktor.serialization.json)
+        implementation(libs.ktor.client.core)
+        implementation(libs.ktor.client.content.negotiation)
+    }
+    iosMain.dependencies {
+        implementation(libs.ktor.client.darwin)
+    }
+}
+```
+
+##### 4. Calling localhost from emulator
+No need to use `adb reverse` but can set host address on client to machine local IP address
+```
+defaultRequest {
+    host = "192.168.1.109" // local ip address
+    port = 8080
+}
+```
+
+##### 5. Android network call setup
+Needing to set `usesCleartextTraffic` to be able to call localhost
+```
+<application
+    android:usesCleartextTraffic="true"
+```
+and set permission for internet
+```
+<uses-permission android:name="android.permission.INTERNET"/>
+```
