@@ -67,6 +67,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.compose.viewmodel.nav)
+            implementation(libs.kotlin.coroutines.core)
             implementation(projects.shared)
         }
     }

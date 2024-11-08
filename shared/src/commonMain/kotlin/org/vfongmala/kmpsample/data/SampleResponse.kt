@@ -1,4 +1,4 @@
-package org.vfongmala.kmpsample
+package org.vfongmala.kmpsample.data
 
 import kotlinx.serialization.*
 
