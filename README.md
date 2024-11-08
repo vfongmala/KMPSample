@@ -61,3 +61,11 @@ Better not to get confused on where to implement the dependency
 
 ##### 3. Json Serialization
 First time using kotlin serialization instead of Gson.
+
+#### Note #3
+##### 1. DI
+Use Koin for Dependencies Injection
+
+##### 2. Logic
+Keep logic part in `shared` module
+`composeApp` module is for app related feature
